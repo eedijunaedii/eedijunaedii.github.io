@@ -1,0 +1,77 @@
+<html> 
+  <head>
+    <title>W3.CSS</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" href="./style/css/w3.css">
+    <link rel="stylesheet" href="./style/css/style.css">  
+    <style>
+      .background-header {
+        padding: 10px;
+        background-image: url('./style/img/bg-header2.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 35%;
+      }
+
+      .klub img {
+        width: 25%%;
+        height: auto;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="background-header"></div>
+
+    <div class="w3-bar"> 
+      <button class="w3-bar-item w3-button w3-animate-bottom color-gradient" onclick="openKlub('PelawakMerah')">PelawakMerah</button> 
+      <button class="w3-bar-item w3-button w3-animate-bottom color-gradient-satu" onclick="openKlub('PelawakBiru')">PelawakBiru</button> 
+      <button class="w3-bar-item w3-button w3-animate-bottom color-gradient-dua" onclick="openKlub('GajahLondon')">GajahLondon</button> 
+      <button class="w3-bar-item w3-button w3-animate-bottom color-gradient-tiga" onclick="openKlub('BangauAnfield')">BangauAnfield</button> 
+      <input type="button" class="w3-button w3-animate-bottom color-gradient-empat " value="Pemesanan Tiket" onclick="pemesanantiket()"> 
+      <input type="button" class="w3-button w3-animate-bottom color-gradient-satu" value="About Me" onclick="aboutme()"> 
+    </div> 
+
+    <div id="PelawakMerah" class="w3-container klub w3-animate-fading"  style="display:none"> 
+      <h2>Pelawak Merah</h2> 
+      <img src="./style/img/lamer.png" alt="PelawakMerah">
+    </div> 
+    <div id="PelawakBiru" class="w3-container klub w3-animate-bottom" style="display:none"> 
+      <h2>Pelawak Biru</h2> 
+      <img src="./style/img/labir.png" alt="PelawakBiru">
+    </div> 
+    <div id="GajahLondon" class="w3-container klub w3-animate-top" style="display:none"> 
+      <h2>Gajah London </h2> 
+      <img src="./style/img/gajah.png" alt="GajahLondon">
+    </div> 
+    <div id="BangauAnfield" class="w3-container klub w3-animate-zoom" style="display:none"> 
+      <h2>Bangau Anfield</h2> 
+      <img src="./style/img/ipul.png" alt="BangauAnfield">
+    </div> 
+
+     <div id="BangauAnfield" class="w3-container klub w3-animate-zoom" style="display:none"> 
+      <h2>Pemesanan Tiket</h2> 
+      <a href="tiket.html"></a>
+    </div> 
+
+    <div class="image-bottom w3-animate-bottom">
+    </div>
+
+    <script> 
+      function openKlub(namaklub) { 
+        var i; 
+        var x = document.getElementsByClassName("klub"); 
+        for (i = 0; i < x.length; i++) { 
+          x[i].style.display = "none";   
+      } 
+        document.getElementById(namaklub).style.display = "block";   
+      } 
+      function pemesanantiket() {
+        window.location.href = "tiket.html";
+      }
+      function aboutme() {
+        window.location.href = "tugasAkhir_Prakerja/index.html";
+      }
+    </script> 
+  </body> 
+</html>
