@@ -486,6 +486,20 @@ section {
     text-align: center;
 }
 
+.ad-button {
+    border:none;
+    display:inline-block;
+    box-shadow: 0 5px 25px rgb(58 71 241);
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color: #fff;
+    text-align:center;
+    cursor:pointer;
+    white-space:nowrap
+}
 
 @media(max-width:1023px) {
     header {
