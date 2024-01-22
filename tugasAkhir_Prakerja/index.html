@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="icon"  href="images/edi-logo.png">
     <title>Portfolio</title>
@@ -42,9 +43,9 @@
         </div>
     </section>
     <section class="education" id="education">
-        <h1 class="title">Education</h1>
+        <h1 class="title" data-aos="fade-up" data-aos-duration="1000">Education</h1>
         <div class="content">
-            <div class="card">
+            <div class="card" data-aos="fade-up" data-aos-duration="1000">
                 <div class="icon">
                      <img src="./images/sd.png" alt="sekolah dasar">
                 </div>
@@ -53,7 +54,7 @@
                     <p>Semasa sekolah dasar saya bersekolah di sdn pangauban 2</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" data-aos="fade-up" data-aos-duration="1000">
                 <div class="icon">
                     <img src="./images/smp.png" alt="sekolah menengah pertama">
                 </div>
@@ -62,7 +63,7 @@
                     <p>Beranjak smp saya memilih untuk bersekolah di smp penida katapang</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" data-aos="fade-up" data-aos-duration="1000">
                 <div class="icon">
                     <img src="./images/smk.jpg" alt="sekolah menengah kejuruan">
                 </div>
@@ -76,7 +77,7 @@
     <section class="experience" id="experiences">
         <h2 class="title">Experience</h2>
         <div class="content">
-            <div class="card">
+            <div class="card" data-aos="fade-up" data-aos-duration="1000">
                 <div class="icon">
                     <i class="fa-solid fa-suitcase"></i>
                 </div>
@@ -86,8 +87,8 @@
                     <p>November 2019 - Januari 2020</p>
                 </div>
             </div>
-            <div class="card">
-                <div class="icon">
+            <div class="card" data-aos="fade-up" data-aos-duration="1000">
+                <div class="icon" data-aos="fade-up" data-aos-duration="1000">
                     <i class="fa-solid fa-suitcase"></i>
                 </div>
                 <div class="info">
@@ -100,9 +101,9 @@
     </section>
     
     <section class="skills" id="skills">
-        <h2 class="title">Skills</h2>
+        <h2 class="title" data-aos="fade-up" data-aos-duration="1000">Skills</h2>
         <div class="content">
-            <ul class="skills-list">
+            <ul class="skills-list" data-aos="fade-up" data-aos-duration="1000">
                 <li>JavaScript</li>
                 <li>Node.js</li>
                 <li>HTML5</li>
@@ -114,8 +115,8 @@
     </section>
     
     <section class="interest" id="interest">
-        <h2 class="title">Interests</h2>
-        <div class="content">
+        <h2 class="title" data-aos="fade-up" data-aos-duration="1000">Interests</h2>
+        <div class="content" data-aos="fade-up" data-aos-duration="1000">
             <p>I have a passion for solving challenging problems and exploring new technologies. Apart from coding, I enjoy playing games, watching movies, and playing football.</p>
         </div>
     </section>
@@ -127,7 +128,7 @@
         </div>
     </section>
     
-    <section class="about" id="about">
+    <section class="about" id="about" data-aos="fade-up" data-aos-duration="1000">
         <h2 class="title">About</h2>
         <div class="content">
             <p>Hello, I'm Edi Junaedi, a passionate backend developer with a strong interest in creating scalable and efficient web applications. I have a solid foundation in programming and problem-solving, and I am eager to continue learning and growing as a developer.</p>
@@ -136,8 +137,8 @@
 
     <section class="contact" id="contact">
         <h2 class="title">Get In Touch With Me</h2>
-        <div class="content">
-            <div class="card">
+        <div class="content" data-aos="fade-up" data-aos-duration="1000">
+            <div class="card" data-aos="fade-up" data-aos-duration="1000">
                 <div class="icon">
                     <i class="fas fa-phone"></i>
                 </div>
@@ -168,5 +169,9 @@
             <input type="button" class="w3-button w3-yellow" value="Back To Home" onclick="back()">
         </div>    
     </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
