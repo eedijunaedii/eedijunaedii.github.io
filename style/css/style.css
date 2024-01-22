@@ -21,3 +21,11 @@
 .gradient-amber {
 	  background-image: linear-gradient(to bottom right, #ffb100, #e29c00);
 }
+
+body {
+	width: 100%;
+	height: auto;
+	background-image: url("../img/bg.gif");
+	background-size: cover;
+	background-position: center;
+}
