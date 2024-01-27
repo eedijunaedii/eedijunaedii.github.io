@@ -3,115 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PENJUALAN TIKET KERETA API</title>
     <link rel="stylesheet" href="./style/css/w3.css">
-    <title>Latihan Pertemuan 11</title>
     <script>
         function proses() {
-          var kotatujuan=document.form.kotatujuan.value;
-          if(kotatujuan=="BANDUNG") var harga=75000;
-          else if(kotatujuan=="JAKARTA")var harga=120000;
-          else if(kotatujuan=="CIREBON")var harga=150000;
-          else if(kotatujuan=="SEMARANG")var harga=200000;
+            var kotatujuan = document.form.kotatujuan.value;
+            var kelas = document.form.kelas.value;
+            var totalharga = document.form.totalharga.value;
 
-          if(document.form.makan.checked) harga=harga+25000;
-          else if(document.form.minum.checked) harga=harga+10000;
-          else if(document.form.wifi.checked) harga=harga+5000;
+            var harga;
+            if (kelas == "EKONOMI") {
+                if (kotatujuan == "BANDUNG") harga = 70000;
+                else if (kotatujuan == "JAKARTA") harga = 100000;
+                else if (kotatujuan == "SURABAYA") harga = 150000;
+            }
+            else if (kelas == "BISNIS") {
+                if (kotatujuan == "BANDUNG") harga = 80000;
+                else if (kotatujuan == "JAKARTA") harga = 150000;
+                else if (kotatujuan == "SURABAYA") harga = 200000;
+            }
+            else if (kelas == "EKSEKUTIF") {
+                if (kotatujuan == "BANDUNG") harga = 90000;
+                else if (kotatujuan == "JAKARTA") harga = 200000;
+                else if (kotatujuan == "SURABAYA") harga = 300000;
+            }
 
-          document.form.harga.value=harga;
-          var jumlah=document.form.jumlah.value;
-          var total=harga*jumlah;
-          document.form.totalharga.value=total;
+            if (document.form.makan.checked) harga = harga + 15000;
+            else if (document.form.wifi.checked) harga = harga + 10000;
+            else if (document.form.minuman.checked) harga = harga + 5000;
+
+            var jumlah = document.form.jumlah.value;
+            var total = harga * jumlah;
+
+            if (jumlah >= 3) {
+                var diskon = 0.1 * total;
+                document.form.diskon.value = diskon;
+                total -= diskon;
+            } else {
+                document.form.diskon.value = 0;
+            }
+
+            document.form.hargatiket_tambahan.value = harga;
+            document.form.subtotal.value = total;
+            document.form.totalharga.value = total;
+
+            var formatRupiah = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(harga);
+            document.form.hargatiket_tambahan.value = formatRupiah;
+
+            var formatSubtotal = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(total);
+            document.form.subtotal.value = formatSubtotal;
+
+            var formatTotalHarga = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(total);
+            document.form.totalharga.value = formatTotalHarga;
+
+            var formatDiskon = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(diskon);
+            document.form.diskon.value = formatDiskon;
         }
 
-        function hapus() {
-        	document.form.namapemesan.value='';
-        	document.form.harga.value='';
-        	document.form.totalharga.value='';
-        	document.form.makan.checked=false;;
-        	document.form.minum.checked=false;;
-        	document.form.wifi.checked=false;
-        	document.form.jumlah[0].checked=false;
-        	document.form.jumlah[1].checked=false;
-        	document.form.jumlah[2].checked=false;
-        }
-        function back() {
-            window.location.href = "index.html";
+        function reset() {
+            document.form.reset();
         }
     </script>
 </head>
 <body>
+
     <div class="w3-container">
-        <div class="w3-panel w3-red w3-card-4 w3-animate-bottom">
+        <div class="w3-container w3-panel w3-card-4 w3-blue">
             <center>
-                <h1>PROGRAM TIKET KERETA API</h1>
+            <h2>PENJUALAN TIKET KERETA API</h2>
             </center>
         </div>
     </div>
 
     <div class="w3-container">
-        <div class="w3-panel w3-cyan w3-card-4 w3-animate-bottom">
+        <div class="w3-container w3-panel w3-card-4 w3-cyan">
+            <form name="form">
             <center>
-                <form name="form">
-                    <table>
-                        <tr>
-                            <td>NAMA PEMESAN</td>
-                            <td><input class="w3-input" type="text" name="namapemesan"></td>
-                        </tr>
-                        <tr>
-                            <td>KOTA TUJUAN</td>
-                            <td>
-                                <select class="w3-select" name="kotatujuan">
-                                    <option>BANDUNG</option>
-                                    <option>JAKARTA</option>
-                                    <option>CIREBON</option>
-                                    <option>SEMARANG</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                        	<td>FASILITAS</td>
-                        	<td>
-                        		<input class="w3-check" type="checkbox" name="makan">
-                        		<label>Makan</label> <br>
-                        		<input class="w3-check" type="checkbox" name="minum">
-                        		<label>Minum</label> <br>
-                        		<input class="w3-check" type="checkbox" name="wifi">
-                        		<label>Wifi</label>
-                        	</td>
-                        </tr>
-                        <tr>
-                            <td>JUMLAH</td>
-                            <td>
-                                <input class="w3-radio" type="radio" name="jumlah" value="1">1
-                                <input class="w3-radio" type="radio" name="jumlah" value="2">2
-                                <input class="w3-radio" type="radio" name="jumlah" value="3">3
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><hr></td>
-                        </tr>
-                        <tr>
-                            <td>HARGA TIKET</td>
-                            <td><input class="w3-input" type="text" name="harga"></td>
-                        </tr>
-                        <tr>
-                            <td>TOTAL HARGA</td>
-                            <td><input class="w3-input" type="text" name="totalharga"></td>
-                        </tr>
-                    </table>
-                </form>
+                <table>
+                    <tr>
+                        <td>KOTA TUJUAN</td>
+                        <td>
+                            <select class="w3-select" name="kotatujuan">
+                                <option>BANDUNG</option>
+                                <option>JAKARTA</option>
+                                <option>SURABAYA</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>KELAS</td>
+                        <td>
+                            <input type="radio" class="w3-radio" name="kelas" value="EKONOMI">EKONOMI <br>
+                            <input type="radio" class="w3-radio" name="kelas" value="BISNIS">BISNIS <br>
+                            <input type="radio" class="w3-radio" name="kelas" value="EKSEKUTIF">EKSEKUTIF 
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><hr></td>
+                    </tr>
+
+                    <tr>
+                        <td>FASILITAS TAMBAHAN</td> 
+                        <td>
+                            <input type="checkbox" name="makan" class="w3-check">
+                            <label>MAKAN</label> <br>
+                            <input type="checkbox" name="wifi" class="w3-check">
+                            <label>WIFI</label> <br>
+                            <input type="checkbox" name="minuman" class="w3-check">
+                            <label>MINUMAN</label> <br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>JUMLAH</td>
+                        <td>
+                            <input type="number" name="jumlah" class="w3-input" min="1">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><hr></td>
+                    </tr>
+
+                    <tr>
+                        <td>HARGA TIKET + TAMBAHAN</td>
+                        <td><input type="text" name="hargatiket_tambahan" class="w3-input"></td>
+                    </tr>
+
+                    <tr>
+                        <td>SUB TOTAL</td>
+                        <td><input type="text" name="subtotal" class="w3-input"></td>
+                    </tr>
+
+                    <tr>
+                        <td>DISKON</td>
+                        <td><input type="text" name="diskon" class="w3-input" readonly></td>
+                    </tr>
+
+                    <tr>
+                        <td>TOTAL HARGA</td>
+                        <td><input type="text" name="totalharga" class="w3-input" readonly></td>
+                    </tr>
+                </table>
             </center>
+            </form>
         </div>
     </div>
 
     <div class="w3-container">
-        <div class="w3-panel w3-blue w3-card-4 w3-animate-bottom">
+        <div class="w3-container w3-panel w3-card-4 w3-orange">
             <center>
-                <input type="button" class="w3-button w3-orange" value="proses" onclick="proses()">
-                <input type="button" class="w3-button w3-red" value="reset" onclick="hapus()">
-                <input type="button" class="w3-button w3-yellow" value="Back To Home" onclick="back()">
+            <input type="button" class="w3-button w3-blue" value="proses" onclick="proses()" >
+            <input type="button" class="w3-button w3-red" value="reset" onclick="reset()" >
             </center>
         </div>
     </div>
+    
 </body>
 </html>
